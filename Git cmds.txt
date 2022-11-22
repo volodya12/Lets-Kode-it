@@ -1,0 +1,97 @@
+GIT and GitHub 
+GIT = allows to create repos, branches, Then Stages and Commits Codes in GIT, tracks code changes via Hash = NO GUI
+GitHub = allows to actually view the code PUSHED by GIT. Stores the Code In GitHub account = all GUI  
+https://www.youtube.com/watch?v=wrb7Gge9yoE  -> Setup GIT with GitHub 
+https://www.youtube.com/watch?v=JCcrdW4Llm0  -> If Authentication is wrong 
+====================================================
+git add .					-> Stages ALL code
+git commit -m "message"
+git push origin master		-> Push Staged Code to GitHub 
+git status					-> Display Branch/Commits/Staging Area
+
+git pull					-> Pull Files From GitHub
+git log --graph				-> GUI Log of commits 
+
+======================================================
+git config --list 
+# ls .git/refts			->Stores Branches
+# ls .git/objects 		->Stores Files 
+
+# Git Object Types:
+Blob -> Files
+Tree -> Folders/Directories
+Commit -> pointers to specific trees/Snapshots of project/Creates as New Code Added/Updated/Removed
+Annotated Tags -> 
+
+Hash -> unique identifier of every git object in git repo
+	Creates up to 40 characters or 160 bits
+	
+# Staging Files to Git: 
+Working Directory -> folder where files located
+Staging area      -> Files are waiting to be pushed to GitHub or Working Server
+Git Repository    -> GitHub/Work Server 
+
+# Commands
+git branch <branchName>		-> Create Branch 
+git branch					-> Display ALL Branches
+git branch -m main		 	-> renames branch
+
+git add .					-> Stages ALL code
+git commit -a -m "message"	-> Stages and Commit Files (will NOT commit Untracked files)
+git commit -m "message"		-> Code is commited in GIT (<message> describes what has been changed in code)
+
+git checkout				-> Pull code From Git Repo onto PC local drive
+git status					-> Display Branch/Commits/Staging Area
+git log						-> History of Commits 
+git log --graph				-> GUI Log of commits 
+
+git reset 					-> UnStage Files 
+
+git pull					-> Pull Files From GitHub
+git push origin master		-> Push Staged Code to GitHub 
+
+# Git Status
+	- Untracked = Files NOT yet Committed. NOT YET Staged
+	- Changes to be committed = files in Staging Area
+	- Modified = File has been updated/modified. WAITING to be Staged 
+	- Staged = Files Staged, READY to COMMIT 
+# Git Checkout
+	- checkout <branchName> = "Master" = HEAD points to this branch. Presents as MAIN 
+	- Checking out is like traveling in time of code creation
+	- checkout <commitName> or first 6 char. = Code will revert to that specific Commit
+	- HEAD is going to be Next to that Commit, indicating its pointing 
+
+	
+# Branch Merging
+	- SourceTree = Graphical interface program for GIT. Easy to see Branches and Commits  
+1. git checkout <branch> = Checkout receiving branch (Master or Main) = "Master" will display as Main branch 
+2. git merge <yourBranch> = Merge yourBranch with Master or Main 
+	- all commits will merge as well
+* git branch -d <yourBranch>		-> DELETE branch
+* ALL Branches located in "ls .git/refs"
+
+# .git commands
+ls .git/objects/cc				->display commits
+git cat-file -t cc<commit>		->display commit type (t=type, paste commit right next to CC)
+git cat-file -p cc<commit>		->See Context of Commit
+cat .git/HEAD					->See which branch HEAD is pointing
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
