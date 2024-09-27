@@ -1,0 +1,226 @@
+Selenium
+
+TIPS:
+
+-static = does not change
+-dynamic = always changes
+
+===============================================================
+XPATH
+
+driver.find_element(By.XPATH, "//input[@id='displayed-text']")
+//input[@name='username']
+
+//input[contains(@type, 'radio_btn') and contains(@name, 'cars_btn')]
+//*[@id='return_date_segment']
+//input[@type='radio']
+
+===============================================================
+CSS
+
+driver.find_element(By.XPATH, "input[name='username']")
+
+# = ID	  (ex: #example)
+. = Class (ex: .example)
+CLASS_NAME
+===============================================================
+# LINK_TEXT
+driver.find_element(By.LINK_TEXT, "HOME")				>contains "<a..." anchor tag - see if there is text as well
+driver.find_element(By.PARTIAL_LINK_TEXT, "COURSES")
+
+By.CLASS_NAME, "btn_style"
+By.TAG_NAME, "a", "div", "input", 
+
+ID 
+XPath: //div[@id='example']
+CSS: #example
+
+Direct Child
+XPath: //div/a
+CSS: div > a
+
+Child or Sub Child
+XPath: //div//a
+CSS: div a
+
+Next Sibling
+XPATH: //input[@id='username']/following-sibling:input[1]
+CSS: #username + input
+===============================================================
+# Dropdown
+select() only works on <select> tags
+
+1.element = driver.find_element(By.ID, "car-select")
+  selectCar = Select(element)
+
+2.selectCar.Select_by_value("BMW")
+
+-there are more options to Select By -
+==============================================================
+# Hidden Elements
+is_displayed()
+
+textBox = driver.find_element(By.ID, "hide-textbox").click()
+stateOfElement = textBox.is_displayed()		
+print("Text is Visible > ", stateOfElement)			>True/False
+------------------
+# If element is SELECTED
+
+* isSelected = radioButton.is_selected()
+if not isSelected:
+	radioButton.click()
+=============================================================
+# Validation/Verification:
+
+* elememtByID = driver.find_element(By.ID, "displayed-text")
+	if elementByID is not None:
+		print("Element is found >> ByID")
+
+* if textInput.is_displayed():		>validate if text is displayed inside textbox
+	print("Text is displayed")
+
+* isSelected = radioButton.is_selected()
+if not isSelected:
+	radioButton.click()
+	
+* doc2.select_by_index(3)
+  dropdown = doc2.first_selected_option			>prints option that was SELECTED from Dropdown 
+  print("Doc3 Selected ", dropdown.text)
+  
+* Validate by Text
+  registerBtn = driver.find_element(By.ID, "//div[@class='register']")
+  elementText = registerBtn.text 
+  print("Text of the Element is ", elementText)
+ 
+* Radio button selected
+radioBtn = driver.find_element(By.ID, "radioBtn").click()
+print("Car - Radio button is selected-> ", radioBtn.is_selected())		>prints True/False 
+
+* Radio as text:
+radioBtn = driver.find_element(By.ID, "radioBtn").click()
+radio_btn_attribute = radioBtn.get_attribute('value')
+print("Radio button selected-> ", radio_btn_attribute)			>prints radio selected as Text 
+
+--------------
+is_enabled()
+is_displayed()
+is_selected()
+first_selected_option		>referring to Select() dropdown 
+=======================================================
+# Attribute
+- class, id, type, name, button, etc
+
+element = driver.find_element(By.ID, "name")
+result = element.get_attribute("class")
+print("Value of attribute is ", result)
+========================================================
+# Expected Condition 
+from selenium.webdriver.support import expected_conditions as EC
+
+Explicit Wait - waits for specific element to load
+Implicit Wait - waits for ALL elements to load. Applies to entire page.
+
+1.define/config 'wait - expected conditions' to behave for element: 
+wait = WebDriverWait(driver, timeout=10, poll_frequency=1, ignored_exceptions=[NoSuchElementException])
+
+2.perform wait operation:
+element_wait = wait.until(EC.visibility_of_element_located((By.XPATH, )))
+element_wait.click()
+driver.quit()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
